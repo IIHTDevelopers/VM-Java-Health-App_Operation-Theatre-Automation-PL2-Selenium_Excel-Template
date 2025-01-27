@@ -179,38 +179,7 @@ public class operationTheatre_testcase extends AppTestBase
 		Assert.assertTrue(locatorsFactoryInstance.verifyNewOTBookingButtonIsPresent(driver).isDisplayed(), "New OT Booking is not present in the current page, Please check manually");
 	}
 
-	@Test(priority = 11, groups = {"sanity"}, description="Expand Billing Module,\r\n"
-			+ "Scroll to the \"Handover\" Sub module's and \r\n"
-			+ "then click on \"Handover\" Sub module\r\n"
-			+ "again Scroll to the buttom of the handover page\r\n"
-			+ "and validate the \"Remarks\" text field and\r\n"
-			+ "\"Handover To User\" button is present")
-	public void performScrollOperation() throws Exception {
-		operationTheatre_PagesInstance = new operationTheatre_Pages(driver);
-		locatorsFactoryInstance = new LocatorsFactory(driver);
-		Map<String, String> expectedData = new FileOperations().readExcelPOI(expectedDataFilePath, "operationTheatreModule");
-
-
-		Assert.assertTrue(operationTheatre_PagesInstance.performScrollOperation(expectedData), "Unable to perform the scroll operation, please check manually");
-		Assert.assertTrue(locatorsFactoryInstance.verifyHandoverToUserButtonIsPresent(driver).isDisplayed(), "HandoverToUser Button is not present in the current page(locators factory), Please check manually");
-	}
-
-	@Test(priority = 12, groups = {"sanity"}, description="On the Billing module's , buttom of the \"Handover\" page,\r\n"
-			+ "locate the \"Remarks\" textbox and \"HandOver To User\" button by using \"ID\"  locator\r\n"
-			+ "and verify that,  \r\n"
-			+ "the \"Remarks\" textbox and \"HandOver To User\" button is present or not ?\r\n"
-			+ "If the \"Remarks\" textbox and \"\"HandOver To User\" button is present,\r\n"
-			+ "then highlight those element.")
-	public void verifyLocators() throws Exception {
-		operationTheatre_PagesInstance = new operationTheatre_Pages(driver);
-		locatorsFactoryInstance = new LocatorsFactory(driver);
-
-		Map<String, String> expectedData = new FileOperations().readExcelPOI(expectedDataFilePath, "operationTheatreModule");
-		Assert.assertEquals(operationTheatre_PagesInstance.verifyLocatorsValueOfELement(expectedData), expectedData.get("idLocatorsValueOfremarkTextbox"),"something went wroung, please check manually");
-		Assert.assertEquals(locatorsFactoryInstance.verifyValueIsPresentInTextbox(),expectedData.get("remarksValue"),"value is not present in the remark text box (Locators factory),  Please check manually");
-	}
-
-	@Test(priority = 13, groups = {"sanity"}, description="Expand the Vaccination Module's\r\n"
+	@Test(priority = 11, groups = {"sanity"}, description="Expand the Vaccination Module's\r\n"
 			+ "and click on \"Patient List\" page \r\n"
 			+ "and perform the keyboard operation\r\n"
 			+ "(\"Alt + N\") to open the \"Vaccination Patient Register\" form.\r\n"
@@ -224,7 +193,7 @@ public class operationTheatre_testcase extends AppTestBase
 		Assert.assertEquals(locatorsFactoryInstance.verifyTitleNameOfVaccinationPatientRegisterFormIsPresent(),expectedData.get("titleNameOfVaccinationPatientRegisterForm"),"title Name Of Vaccination Patient Register Form is not matching in current page(locators factory), Please check manually");
 	}
 
-	@Test(priority = 14, groups = {"sanity"}, description="Expand the \"Appointment\" module\r\n"
+	@Test(priority = 12, groups = {"sanity"}, description="Expand the \"Appointment\" module\r\n"
 			+ "and click on \"Book Appointment\" Sub module.\r\n"
 			+ "On the \"Book Appointment\" page,\r\n"
 			+ "select the \"Month\" radio button\r\n"
@@ -242,7 +211,7 @@ public class operationTheatre_testcase extends AppTestBase
 		Assert.assertEquals(locatorsFactoryInstance.verifyFollowUpPatientIsSelected(), expectedData.get("visitTypeOptionValue"), "selected option is not matching with expected(Locators Factory), please check manually!");
 	}
 
-	@Test(priority = 15, groups = {"sanity"}, description="On the Book Appointment submodules of appointment module,\r\n"
+	@Test(priority = 13, groups = {"sanity"}, description="On the Book Appointment submodules of appointment module,\r\n"
 			+ "clicking on the \"Add Appointment\" button\r\n"
 			+ "it will throw an Error Notification popup. \r\n"
 			+ "Then Assert that Error Message using hard assert")
@@ -256,6 +225,29 @@ public class operationTheatre_testcase extends AppTestBase
 		Assert.assertEquals(locatorsFactoryInstance.verifyErrorNotificationPopupMessageIsPresent(),expectedData.get("errorNotificationPopupMessage")) ;
 	}
 
+	@Test(priority = 14, groups = {"sanity"}, description="Go to the Operation Theatre module\r\n"
+			+ "and click on\"New OT Booking\" button \r\n"
+			+ "and it will open the \"Booking OT Schedule | New Patient\" form.\r\n"
+			+ "Then Search for a OT Assistant Name as Pooja from the OT Assistant Name Field\r\n"
+			+ "and select the Dr. Pooja Mishra by handling auto suggestion\r\n"
+			+ "and validate Pooja Mishra is selected.")
+	public void handleAutoSuggesstion() throws Exception {
+		operationTheatre_PagesInstance = new operationTheatre_Pages(driver);
+		locatorsFactoryInstance = new LocatorsFactory(driver);
+		Map<String, String> expectedData = new FileOperations().readExcelPOI(expectedDataFilePath, "operationTheatreModule");
+
+		Assert.assertEquals(operationTheatre_PagesInstance.handleAutoSuggesstion(expectedData),expectedData.get("expectedOTAssistantName")) ;
+		Assert.assertEquals(locatorsFactoryInstance.verifySuggestionsIsSelected(),expectedData.get("expectedOTAssistantName")) ;
+	}
+
+	@Test(priority = 15, groups = {"sanity"}, description="On the \"Operation Theatre\" module,\r\n"
+			+ "Taking screenshot of the current page.")
+	public void takingScreenshotOfCurrentPage() throws Exception {
+		operationTheatre_PagesInstance = new operationTheatre_Pages(driver);
+		locatorsFactoryInstance = new LocatorsFactory(driver);
+		Assert.assertTrue(operationTheatre_PagesInstance.takingScreenshotOfTheCurrentPage(),"Not able to take the screenshot, please check manually");
+		Assert.assertTrue(locatorsFactoryInstance.verifyNewOTBookingButtonIsPresent(driver).isDisplayed(),"Race TextField is not present in the current page, Please check manually");
+	}
 	
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
