@@ -160,30 +160,6 @@ public class operationTheatre_Pages extends StartupPage {
 	}
 
 	/**@Test11
-	 * about this method performScrollOperation() 
-	 * @param : null
-	 * @description : scroll to the bottom of the page and validate the button and text field is present
-	 * @return : Boolean
-	 * @author : YAKSHA
-	 */
-	public Boolean performScrollOperation(Map<String, String> expectedData) throws Exception {
-			
-		return false;
-	}
-
-	/**@Test12
-	 * about this method verifyLocatorsValueOfELement() 
-	 * @param : Map<String, String>
-	 * @description : verify locators value of text box and send value to the text box and highlight that text box
-	 * @return : String
-	 * @author : YAKSHA
-	 */
-	public String verifyLocatorsValueOfELement(Map<String, String> expectedData) throws Exception {
-		
-		return null;
-	}
-
-	/**@Test13
 	 * about this method performKeyboardOperation() 
 	 * @param : Map<String, String>
 	 * @description : perform the keyboard operation
@@ -195,7 +171,7 @@ public class operationTheatre_Pages extends StartupPage {
 		return null;
 	}
 
-	/**@Test14.1
+	/**@Test12.1
 	 * about this method verifyRadioButton() 
 	 * @param : null
 	 * @description :
@@ -207,7 +183,7 @@ public class operationTheatre_Pages extends StartupPage {
 		return false;
 	}
 
-	/**@Test14.2
+	/**@Test12.2
 	 * about this method verifyOptionIsSelectedFromDropdown() 
 	 * @param : get the data from excel file as type Map<String, String> expectedData
 	 * @description : it will select the option as per Excel expected data
@@ -219,7 +195,7 @@ public class operationTheatre_Pages extends StartupPage {
 		return null;
 	}
 
-	/**@Test15
+	/**@Test13
 	 * about this method verifyErrorNotificationPopupMessage() 
 	 * @param : null
 	 * @description : verify the error message using hard assert
@@ -229,6 +205,30 @@ public class operationTheatre_Pages extends StartupPage {
 	public String verifyErrorNotificationPopupMessage() throws Exception {
 			
 		return null;
+	}
+
+	/**@Test14
+	 * about this method handleAutoSuggesstion() 
+	 * @param : Map<String, String>
+	 * @description : Search for a Select Item as Accounts and select Accounts  and validate Accounts is selected.
+	 * @return : Boolean
+	 * @author : YAKSHA
+	 */
+	public String handleAutoSuggesstion(Map<String, String> expectedData) throws Exception {
+		
+		return null;
+	}
+
+	/**@Test15
+	 * about this method takingScreenshotOfTheCurrentPage() 
+	 * @param : null
+	 * @description : Taking screenshot of the current page.
+	 * @return : Boolean
+	 * @author : YAKSHA
+	 */
+	public Boolean takingScreenshotOfTheCurrentPage() throws Exception {
+		
+		return false;
 	}
 
 }
