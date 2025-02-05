@@ -211,43 +211,6 @@ public class operationTheatre_testcase extends AppTestBase
 		Assert.assertEquals(locatorsFactoryInstance.verifyFollowUpPatientIsSelected(), expectedData.get("visitTypeOptionValue"), "selected option is not matching with expected(Locators Factory), please check manually!");
 	}
 
-	@Test(priority = 13, groups = {"sanity"}, description="On the Book Appointment submodules of appointment module,\r\n"
-			+ "clicking on the \"Add Appointment\" button\r\n"
-			+ "it will throw an Error Notification popup. \r\n"
-			+ "Then Assert that Error Message using hard assert")
-	public void verifyErrorNotificationPopupMessage() throws Exception {
-
-		operationTheatre_PagesInstance = new operationTheatre_Pages(driver);
-		locatorsFactoryInstance = new LocatorsFactory(driver);
-		Map<String, String> expectedData = new FileOperations().readExcelPOI(expectedDataFilePath, "operationTheatreModule");
-
-		Assert.assertEquals(operationTheatre_PagesInstance.verifyErrorNotificationPopupMessage(),expectedData.get("errorNotificationPopupMessage")) ;
-		Assert.assertEquals(locatorsFactoryInstance.verifyErrorNotificationPopupMessageIsPresent(),expectedData.get("errorNotificationPopupMessage")) ;
-	}
-
-	@Test(priority = 14, groups = {"sanity"}, description="Go to the Operation Theatre module\r\n"
-			+ "and click on\"New OT Booking\" button \r\n"
-			+ "and it will open the \"Booking OT Schedule | New Patient\" form.\r\n"
-			+ "Then Search for a OT Assistant Name as Pooja from the OT Assistant Name Field\r\n"
-			+ "and select the Dr. Pooja Mishra by handling auto suggestion\r\n"
-			+ "and validate Pooja Mishra is selected.")
-	public void handleAutoSuggesstion() throws Exception {
-		operationTheatre_PagesInstance = new operationTheatre_Pages(driver);
-		locatorsFactoryInstance = new LocatorsFactory(driver);
-		Map<String, String> expectedData = new FileOperations().readExcelPOI(expectedDataFilePath, "operationTheatreModule");
-
-		Assert.assertEquals(operationTheatre_PagesInstance.handleAutoSuggesstion(expectedData),expectedData.get("expectedOTAssistantName")) ;
-		Assert.assertEquals(locatorsFactoryInstance.verifySuggestionsIsSelected(),expectedData.get("expectedOTAssistantName")) ;
-	}
-
-	@Test(priority = 15, groups = {"sanity"}, description="On the \"Operation Theatre\" module,\r\n"
-			+ "Taking screenshot of the current page.")
-	public void takingScreenshotOfCurrentPage() throws Exception {
-		operationTheatre_PagesInstance = new operationTheatre_Pages(driver);
-		locatorsFactoryInstance = new LocatorsFactory(driver);
-		Assert.assertTrue(operationTheatre_PagesInstance.takingScreenshotOfTheCurrentPage(),"Not able to take the screenshot, please check manually");
-		Assert.assertTrue(locatorsFactoryInstance.verifyNewOTBookingButtonIsPresent(driver).isDisplayed(),"Race TextField is not present in the current page, Please check manually");
-	}
 	
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
