@@ -195,40 +195,5 @@ public class operationTheatre_Pages extends StartupPage {
 		return null;
 	}
 
-	/**@Test13
-	 * about this method verifyErrorNotificationPopupMessage() 
-	 * @param : null
-	 * @description : verify the error message using hard assert
-	 * @return : String
-	 * @author : YAKSHA
-	 */
-	public String verifyErrorNotificationPopupMessage() throws Exception {
-			
-		return null;
-	}
-
-	/**@Test14
-	 * about this method handleAutoSuggesstion() 
-	 * @param : Map<String, String>
-	 * @description : Search for a Select Item as Accounts and select Accounts  and validate Accounts is selected.
-	 * @return : Boolean
-	 * @author : YAKSHA
-	 */
-	public String handleAutoSuggesstion(Map<String, String> expectedData) throws Exception {
-		
-		return null;
-	}
-
-	/**@Test15
-	 * about this method takingScreenshotOfTheCurrentPage() 
-	 * @param : null
-	 * @description : Taking screenshot of the current page.
-	 * @return : Boolean
-	 * @author : YAKSHA
-	 */
-	public Boolean takingScreenshotOfTheCurrentPage() throws Exception {
-		
-		return false;
-	}
 
 }
